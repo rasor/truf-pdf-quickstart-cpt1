@@ -44,7 +44,7 @@ Commands:
   Build for production: cd app && npm run build
 ```
 
-Make a remote git repo
+## Make a remote git repo
 
 ```bash
 # git enable
@@ -59,5 +59,26 @@ git push -u origin master
 # start vscode
 code .
 ```
+
+# Do some coding
+
+## Prepare for ES6 files with Babel  
+
+
+```bash
+# https://babeljs.io/setup#installation
+cd app
+# Copy a babel config file to app folder from https://github.com/PacktPublishing/Truffle-Quick-Start-Guide/blob/master/chapter1/.babelrc  
+
+npm install babel-register  --save-dev
+npm install @babel/preset-env --save-dev
+
+# We might need more babel. The demo has a lot:
+# https://github.com/PacktPublishing/Truffle-Quick-Start-Guide/blob/master/chapter1/package.json
+```
+
+# Credits
+
+* Book: [Truffle Quick Start Guide | PACKT Books](https://www.packtpub.com/web-development/truffle-quick-start-guide)
 
 The End

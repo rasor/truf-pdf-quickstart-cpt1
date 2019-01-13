@@ -25,7 +25,7 @@
 // https://github.com/PacktPublishing/Truffle-Quick-Start-Guide/blob/master/chapter1/truffle.js
 // https://babeljs.io/setup#installation
 // Allows us to use ES6 in our migrations and tests.
-require('babel-register')
+//require('babel-register')
 
 // const HDWallet = require('truffle-hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
@@ -53,7 +53,7 @@ module.exports = {
     //
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 7545,            // https://github.com/PacktPublishing/Truffle-Quick-Start-Guide/blob/master/chapter1/truffle.js
+      port: 9545,            // from $ truffle develop
       network_id: "*",       // Any network (default: none)
     },
 

@@ -1,17 +1,41 @@
 # Truffle Quickstart PDF
 
-This repo is build from followin "Truffle Quick Start Guide"
+This repo is build from following "Truffle Quick Start Guide"
 
 * Book: [Truffle Quick Start Guide | PACKT Books](https://www.packtpub.com/web-development/truffle-quick-start-guide)
 * Code: [PacktPublishing/Truffle-Quick-Start-Guide](https://github.com/PacktPublishing/Truffle-Quick-Start-Guide)
 
-# Install
+# Install Truffle and create a project
 
 ```bash
 # Install truffle
 npm install -g truffle
 truffle -v
-# v5.0.1
+# v5.0.2
+
+# Usage: truffle <command> [options]
+# Commands:
+#   build     Execute build pipeline (if configuration present)
+#   compile   Compile contract source files
+#   console   Run a console with contract abstractions and commands available
+#   create    Helper to create new contracts, migrations and tests
+#   debug     Interactively debug any transaction on the blockchain (experimental)
+#   deploy    (alias for migrate)
+#   develop   Open a console with a local development blockchain
+#   exec      Execute a JS module within this Truffle environment
+#   help      List all commands or provide information about a specific command
+#   init      Initialize new and empty Ethereum project
+#   install   Install a package from the Ethereum Package Registry
+#   migrate   Run migrations to deploy contracts
+#   networks  Show addresses for deployed contracts on each network
+#   opcode    Print the compiled opcodes for a given contract
+#   publish   Publish a package to the Ethereum Package Registry
+#   run       Run a third-party command
+#   test      Run JavaScript and Solidity tests
+#   unbox     Download a Truffle Box, a pre-built Truffle project
+#   version   Show version number and exit
+#   config    Set user-level configuration options
+#   watch     Watch filesystem for changes and rebuild the project automatically
 
 # make a project folder
 mkdir truffle-demo && cd truffle-demo
@@ -34,7 +58,7 @@ truffle unbox webpack
 #   Build for production: cd app && npm run build
 ```
 
-## Make a remote git repo
+## Store project in a remote git repo
 
 ```bash
 # git enable
@@ -50,11 +74,14 @@ git push -u origin master
 code .
 ```
 
-# Run Mock-Blockchain
+# Run Mock-Blockchain and connect towards it
+
+In terminal-1 run the blockchain:  
 
 ```bash
 # Run a mock blockchain
 # It problably runs genache-cli behind the scenes.
+# In root containing truffle-config.js:
 truffle develop
 # Output: -----
 # Truffle Develop started at http://127.0.0.1:9545/
@@ -74,7 +101,6 @@ truffle develop
 
 # Compile the .sol code - this will create folder \build\ containing a .json file foreach .sol file in the \contracts\ folder
 > compile
-truffle(develop)> compile
 # Output: -----
 # Compiling .\contracts\ConvertLib.sol...
 # Compiling .\contracts\MetaCoin.sol...
@@ -120,10 +146,51 @@ truffle(develop)> compile
 # > Final cost:          0.01510542 ETH
 # -----
 
-# In another terminal:
+# Print the contracts: 
+> networks
+
+# Network: develop (id: 4447)
+#   ConvertLib: 0xa53795172f5a739f3829CEB39E92ab59D7ad38Ec
+#   MetaCoin: 0x3aaE633329C49b6546Cb947959Ddc173D5ed0628
+
+# Execute test:
+> test
+# Output: -----
+# Using network 'development'.
+
+# Compiling .\contracts\ConvertLib.sol...
+# Compiling .\test\TestMetacoin.sol...
+
+#   TestMetacoin
+#     1) "before all" hook: prepare suite
+
+#   Contract: MetaCoin
+#     √ should put 10000 MetaCoin in the first account (58ms)
+#     √ should call a function that depends on a linked library (110ms)
+#     √ should send coin correctly (235ms)
+
+
+#   3 passing (11s)
+#   1 failing
+
+#   1) TestMetacoin
+#        "before all" hook: prepare suite:
+#      Error: Could not find artifacts for \cpt1\contracts\ConvertLib.sol from any sources
+# -----
+
+# Error above:
+# https://ethereum.stackexchange.com/questions/44698/truffle-metacoin-could-not-find-artifacts-for-convertlib-sol-from-any-sources?newreg=591eee0e2ab64afd81341cbe7321cf15
+# WhatToDo? I think rolling back to v.4.1.4 is too far.
+# https://github.com/trufflesuite/truffle/issues/1630
+
+```
+
+In terminal-2 run a webserver with a web3 client:  
+
+```bash
 cd app
 npm run dev
-# Partly output
+# Partly output: -----
 # > truf-pdf-quickstart-cpt1@1.0.0 dev \truf-pdf-quickstart\cpt1\app
 # > webpack-dev-server
 
@@ -140,9 +207,9 @@ npm run dev
 # Browse to http://localhost:8080/
 
 # Close browser
-# Close the webpack webserver: Ctrl-C
+# Terminal-2: Close the webpack webserver: Ctrl-C
 
-# Kill the mock
+# Terminal-1: Kill the mock
 > .exit
 ```
 
@@ -165,6 +232,15 @@ npm install @babel/preset-env --save-dev
 
 # Credits
 
-* Book: [Truffle Quick Start Guide | PACKT Books](https://www.packtpub.com/web-development/truffle-quick-start-guide)
+* [Nikhil Bhaskar](https://github.com/Nikhil22)
+  * Nikhil's Book: [Truffle Quick Start Guide | PACKT Books](https://www.packtpub.com/web-development/truffle-quick-start-guide)
+
+# Channel
+
+* [ConsenSys/truffle](https://gitter.im/ConsenSys/truffle)
+
+# Other libs
+
+* [truffle-hdwallet-provider](https://www.npmjs.com/package/truffle-hdwallet-provider)
 
 The End

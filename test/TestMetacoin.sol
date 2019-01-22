@@ -1,8 +1,11 @@
 pragma solidity >=0.4.21 <0.6.0;
 
+// https://truffleframework.com/docs/truffle/getting-started/package-management-via-npm#within-your-contracts
 import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/MetaCoin.sol";
+
+// https://truffleframework.com/docs/truffle/testing/writing-tests-in-solidity
 
 contract TestMetacoin {
     function testInitialBalanceUsingDeployedContract() public {

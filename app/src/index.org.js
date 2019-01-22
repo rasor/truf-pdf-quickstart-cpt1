@@ -28,31 +28,31 @@ const App = {
     }
   },
 
-  // refreshBalance: async function() {
-  //   const { getBalance } = this.meta.methods;
-  //   const balance = await getBalance(this.account).call();
+  refreshBalance: async function() {
+    const { getBalance } = this.meta.methods;
+    const balance = await getBalance(this.account).call();
 
-  //   const balanceElement = document.getElementsByClassName("balance")[0];
-  //   balanceElement.innerHTML = balance;
-  // },
+    const balanceElement = document.getElementsByClassName("balance")[0];
+    balanceElement.innerHTML = balance;
+  },
 
-  // sendCoin: async function() {
-  //   const amount = parseInt(document.getElementById("amount").value);
-  //   const receiver = document.getElementById("receiver").value;
+  sendCoin: async function() {
+    const amount = parseInt(document.getElementById("amount").value);
+    const receiver = document.getElementById("receiver").value;
 
-  //   this.setStatus("Initiating transaction... (please wait)");
+    this.setStatus("Initiating transaction... (please wait)");
 
-  //   const { sendCoin } = this.meta.methods;
-  //   await sendCoin(receiver, amount).send({ from: this.account });
+    const { sendCoin } = this.meta.methods;
+    await sendCoin(receiver, amount).send({ from: this.account });
 
-  //   this.setStatus("Transaction complete!");
-  //   this.refreshBalance();
-  // },
+    this.setStatus("Transaction complete!");
+    this.refreshBalance();
+  },
 
-  // setStatus: function(message) {
-  //   const status = document.getElementById("status");
-  //   status.innerHTML = message;
-  // },
+  setStatus: function(message) {
+    const status = document.getElementById("status");
+    status.innerHTML = message;
+  },
 };
 
 window.App = App;

@@ -80,7 +80,8 @@ In terminal-1 run the blockchain:
 
 ```bash
 # Run a mock blockchain
-# It problably runs genache-cli behind the scenes.
+# It runs genache-cli (formerly TestRPC) behind the scenes.
+# It also seems to start a HDWalletProvider, so you are provided with some accounts on the blockchain.
 # In root containing truffle-config.js:
 truffle develop
 # Output: -----
@@ -182,7 +183,11 @@ truffle develop
 # https://ethereum.stackexchange.com/questions/44698/truffle-metacoin-could-not-find-artifacts-for-convertlib-sol-from-any-sources?newreg=591eee0e2ab64afd81341cbe7321cf15
 # WhatToDo? I think rolling back to v.4.1.4 is too far.
 # https://github.com/trufflesuite/truffle/issues/1630
-
+# Apparently wait a while and then reinstall truffle to a newer version
+> .exit
+npm view truffle versions
+npm uninstall -g truffle
+npm install -g truffle
 ```
 
 In terminal-2 run a webserver with a web3 client:  
@@ -238,6 +243,11 @@ npm install @babel/preset-env --save-dev
 # Channel
 
 * [ConsenSys/truffle](https://gitter.im/ConsenSys/truffle)
+
+# Tutorials
+
+* [Get started with Ethereum & Solidity on Windows – Wesley van Heije – Medium](https://medium.com/@wslyvh/get-started-with-ethereum-solidity-on-windows-1672e9953a1)
+* [Tutorials | Ethereum Pet Shop -- Your First Dapp](https://truffleframework.com/tutorials/pet-shop)
 
 # Other libs
 

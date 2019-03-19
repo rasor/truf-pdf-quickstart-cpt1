@@ -188,6 +188,16 @@ truffle develop
 npm view truffle versions
 npm uninstall -g truffle
 npm install -g truffle
+
+# After upgrading truffle to 5.0.8 then I could 'test'
+> the other cmds ... compile, migrate
+> test
+#   TestMetacoin
+#     √ testInitialBalanceUsingDeployedContract (194ms)
+#     √ testInitialBalanceWithNewMetaCoin (159ms)
+
+#   5 passing (14s)
+> .exit
 ```
 
 In terminal-2 run a webserver with a web3 client:  
